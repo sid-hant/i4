@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 from posts import views as post_views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +27,4 @@ urlpatterns = [
     path('a/', include('django.contrib.auth.urls')),
     path('p/', post_views.PostList.as_view(), name='annoucements'),
     path('s/', post_views.Score.as_view(), name='score')
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
