@@ -9,23 +9,50 @@
   </head>
 
   {% if user.is_authenticated %}
-  <nav class="navbar mynav" role="navigation" id="navbar">
-    <div class="container">
-      <a class="navbar-brand mynav" href="{% url 'home' %}">I4 Competition</a>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="nav"><a href="#"></a>Scoreboard</li>
-        <li><a href="#"></a>Annoucements</li>
-        <li><a href="#"></a>Dropbox</li>
-        <li><a href="#"></a>Documents</li>
-        <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+
+
+  <nav class="navbar navbar-expand-lg navbar-light ">
+    <a class="navbar-brand" href="#"><img src="{% static "images/Logo.png" %}" width="35%" align="center"/></a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto navbar-right">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Announcements</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="#">Documents</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Submit</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Scoreboard</a>
+        </li>
+        <li class="nav-item">
+          <button style="padding-top: 0%; padding-bottom: 0%" class="btn btn-danger"><a class="nav-link" href="{% url 'logout' %}" style="color: white;" >Logout</a></button>
+        </li>
       </ul>
     </div>
-
   </nav>
-  {% else %}
 
+
+
+
+
+
+
+
+
+  
   {% endif %}
   <body>
+  <br><br>
     {% block content %}{% endblock %}
+  
+    <footer class="footer fixed-bottom">
+      <div class="container fixed-bottom" align="center" style="color: rgb(90,65,125);">
+        <span >created by <a href="https://sid-hant.github.io" target="_blank">devs & designers</a> at i4</span>
+      </div>
+    </footer>
   </body>
 </html>

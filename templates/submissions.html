@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% block title %}i4 - Submit{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="container">
+    <h1 style="color: rgb(90,65,125); font-size: 400%;">upload</h1>
+  </div>
+  <div class="container">
+    <div  class="row">
+        <div class="col">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <form class="form form-group" method="POST" ENCTYPE="multipart/form-data">
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+                        
+                        <input type="submit" class="btn btn-success btn-lg btn-block" value="Submit">
+                    </form>
+                </div>
+            </div>
+
+
+
+
+
+            
+        </div>
+    </div>
+    
+</div>
+{% endblock %}

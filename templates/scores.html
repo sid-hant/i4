@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% block title %}i4 - Scores{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="container">
+    <h1 style="color: rgb(90,65,125); font-size: 400%;">scores</h1>
+  </div>
+  <div class="container">
+    {% for team in object_list %}
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="container">
+              <div class="card text-white bg-success">
+                <div class="card-body">
+                  {% if team.team_name %}
+                  <h4 class="card-title">{{ team.team_name }}</h4>
+                  {% endif %}
+                  <p class="card-text">{{ team.team_score }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+    {% endfor %}
+</div>
+{% endblock %}

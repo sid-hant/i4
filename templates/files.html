@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% block title %}i4 - Documents{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="container">
+    <h1 style="color: rgb(90,65,125); font-size: 400%;">files</h1>
+  </div>
+  <div class="container">
+    {% for doc in object_list %}
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="container">
+              <div class="card text-white bg-success">
+                <div class="card-body">
+                  {% if doc.title %}
+                  <h4 class="card-title">{{ doc.title }}</h4>
+                  {% endif %}
+                  <p class="card-text">{{ doc.message }}</p>
+                  <a href ="{{ doc.files.url }}" class="btn btn-outline-light btn-lg">Task</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+    {% endfor %}
+</div>
+{% endblock %}

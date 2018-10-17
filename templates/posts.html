@@ -1,21 +1,35 @@
 {% extends "base.html" %}
 {% load bootstrap3 %}
-{% block title %}i4 Competition Posts{% endblock %}
+{% block title %}i4 - Announcement{% endblock %}
 {% block content %}
-
 <div class="container">
-  <h3>Industry 4.0 Competition</h3>
-</div>
-
-<div class="container">
+  <div class="container">
+    <h1 style="color: rgb(90,65,125); font-size: 400%;">announcements</h1>
+  </div>
+  <div class="container">
     {% for post in object_list %}
-    <div class="jumbotron">
-      {{ post.message }}
-      {% if post.image %}
-      <img src="{{ post.image.url }}" width="240">
-      {% endif %}
-    </div>
+      <div class="container">
+        <div class="row">
+          {% if post.image %}
+          <div class="col col-sm-auto">
+            <img src="{{ post.image.url }}" width="360" style="border-radius: 10px;">
+          </div>
+          {% endif %}
+          <div class="col">
+            <div class="container">
+              <div class="card text-white bg-secondary">
+                <div class="card-body">
+                  {% if post.title %}
+                  <h4 class="card-title">{{ post.title }}</h4>
+                  {% endif %}
+                  <p class="card-text">{{ post.message }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>  
     {% endfor %}
 </div>
-
 {% endblock %}
